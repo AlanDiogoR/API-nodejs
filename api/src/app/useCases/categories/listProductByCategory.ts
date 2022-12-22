@@ -1,6 +1,7 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
+import { Product } from '../../models/Product';
 
-import { Product } from "../../models/Products";
+
 
 export async function listProductByCategory(req: Request, res: Response) {
   try {

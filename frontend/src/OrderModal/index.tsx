@@ -110,11 +110,11 @@ export function OrderModal( {
             >
               <span>
                 {order.status === 'WAITING' && '👨‍🍳'}
-                {order.status === 'IN_PRODUCTION' && '👨‍🍳'}
+                {order.status === 'IN_PRODUCTION' && '✔️'}
               </span>
               <strong>
-                {order.status === 'IN_PRODUCTION' && '👨‍🍳'}
-                {order.status === 'WAITING' && 'Concluir Pedido'}
+                {order.status === 'WAITING' && 'Iniciar produção'}
+                {order.status === 'IN_PRODUCTION' && 'Concluir Pedido!'}
               </strong>
             </button>
           )}

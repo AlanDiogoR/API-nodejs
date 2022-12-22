@@ -1,6 +1,6 @@
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
-export const Product = model("Product", new Schema({
+export const Product = model('Product', new Schema({
   name: {
     type: String,
     required: true,
@@ -18,14 +18,17 @@ export const Product = model("Product", new Schema({
     required: true,
   },
   ingredients:[{
-    name: {
-      type: String,
-      required: true,
-    },
-    icon: {
-      type: String,
-      required: true,
-    },
+    required: true,
+    type: [{
+      name: {
+        type: String,
+        required: true,
+      },
+      icon: {
+        type: String,
+        required: true,
+      },
+    }]
   }],
   category: {
     type: Schema.Types.ObjectId,

@@ -1,5 +1,5 @@
-import { Request, Response } from "express";
-import { Product } from "../../models/Products";
+import { Request, Response } from 'express';
+import { Product } from '../../models/Product';
 
 
 

@@ -1,6 +1,6 @@
-import { model, Schema } from "mongoose";
+import { model, Schema } from 'mongoose';
 
-export const Order = model("Order", new Schema({
+export const Order = model('Order', new Schema({
   table: {
     type: String,
     required: true,

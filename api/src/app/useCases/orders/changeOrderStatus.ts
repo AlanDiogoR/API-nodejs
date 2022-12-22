@@ -1,6 +1,6 @@
-import { Request, Response } from "express";
+import { Request, Response } from 'express';
 
-import { Order } from "../../models/Order";
+import { Order } from '../../models/Order';
 
 export async function changeOrderStatus(req: Request, res: Response) {
   try {
@@ -10,12 +10,12 @@ export async function changeOrderStatus(req: Request, res: Response) {
     if(!['WAITING', 'IN_PRODUCTION', 'DONE'].includes(status)) {
       return res.status(400).json({
         error: 'Status should  be one of these: Waiting, In_Production ou Done.'
-      })
+      });
     }
 
     await Order.findByIdAndUpdate(orderId, { status});
 
-    res.sendStatus(204)
+    res.sendStatus(204);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);

@@ -5,9 +5,13 @@ import { Product } from "../../models/Products";
 export async function listProductByCategory(req: Request, res: Response) {
   try {
     const { categoryId } = req.params;
-    const product = await Product.find().where('category').equals(categoryId);
+    const products = await Product
+      .find()
+      .where('category')
+      .equals(categoryId)
+    ;
 
-    res.json(product);
+    res.json(products);
   } catch (error) {
     console.log(error);
     res.sendStatus(500);

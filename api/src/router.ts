@@ -46,7 +46,7 @@ router.post('/products', upload.single('image'), createProduct);
 
 //get product by category
 
-router.post('/categories:categoryId/products', listProductByCategory);
+router.post('/categories/:categoryId/products', listProductByCategory);
 
 //list orders
 
@@ -58,7 +58,7 @@ router.post('/orders', createOrder);
 
 //change order
 
-router.patch('/orders:orderId', changeOrderStatus);
+router.patch('/orders/:orderId', changeOrderStatus);
 
 //dele or cancel
 

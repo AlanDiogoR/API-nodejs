@@ -1,4 +1,7 @@
 import path from 'node:path';
+
+import http from 'node:http';
+
 import express from 'express';
 
 import mongoose from 'mongoose';
@@ -9,13 +12,21 @@ mongoose.connect('mongodb://localhost:27017')
   .then( () => {
     const app = express();
     const port = 3001;
+    const server = http.createServer(app);
+
+    app.use((req, res, next) => {
+      res.setHeader('Acess-Control-Allow-Orign', '*');
+      res.setHeader('Acess-Control-Allow-Methods', '*');
+      res.setHeader('Acess-Control-Allow-Headers', '*');
+      next();
+    });
 
     app.use(express.json());
     app.use(router);
 
     app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')))
 
-    app.listen(port, () => {
+    server.listen(port, () => {
       console.log(`🚀 Server is running on http://localhost:${port}`);
     });
   })
